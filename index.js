@@ -2,6 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 
+// Questions to be used inside inquirer
 const questions = [
     {
         type: 'input',
@@ -26,7 +27,8 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Please write how to install your project.'
+        message: 'Please write how to install your project. Follow template: 1.Your instructions. 2.Next instructions etc...',
+        defualt: 'npm install'
     },
     {
         type: 'input',
@@ -41,7 +43,8 @@ const questions = [
     {
         type: 'input',
         name: 'tests',
-        message: 'Specify how to run tests for this project'
+        message: 'Specify how to run tests for this project',
+        default: 'npm tests'
     },
     {
         type: 'list',
@@ -57,64 +60,110 @@ const questions = [
 
 ]
 
+// const contains all badges for the license mentioned in questions.
 const licenseBadges = {
     "MIT License": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
     "GNU General Public License (GPL)": "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
-    "Apache License 2.0": "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+    "Apache License 2.0": "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
     "Creative Commons Zero v1.0 Universal": "[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)",
     "BSD 2-Clause 'Simplified' License": "[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)",
     "BSD 3-Clause 'New' or 'Revised' License": "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
     "Boost Software License 1.0": "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
-    
   };
+
+const licenseLiks = {
+    "MIT License": 'https://opensource.org/licenses/MIT'
+}
+
+
     
 
 function readMeTemplate(answers) {
 
     const { github, email, title, description, installation, usage, contributing, tests, license} = answers;
 
+    
+    // This gets the right badge based on user choice.
     const userLicenseBadge = licenseBadges[license] 
-    return `
-        #${title}
 
-        ## Description
+    // Break down object of licensebadges and get the link for the license
+    const urlRegex = /\((https?:\/\/[^)]+)\)/g;
+    const urls = userLicenseBadge.match(urlRegex);
+    console.log(urls);
+    const licenseUrl = urls ? urls[1] : null;
+    
+    
 
-        ${description}
+    // Returns template of readme
+    return readMe = `# ${title}
 
-        ## Installation
+${userLicenseBadge}
 
-        ${installation}
+## Description
 
-        ## Usage
+${description}
 
-        ${usage}
+## Table of Contents
 
-        ## License
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [Contributing](#contributing)
+- [Questions](#email)
 
-        ${license}
+## Installation
 
-        ## Tests
+${installation}
 
-        ${tests}
+## Usage
 
-        ## Contributing
+${usage}
 
-        ${contributing}
+## License
 
-    `
+${license}[License]${licenseUrl}
 
+## Tests
+
+To run tests, use the following command:
+
+\`\`\`
+${tests}
+\`\`\`
+
+## Contributing
+
+${contributing}
+
+## Contact
+
+If you got some questions, contact me on : ${email} or ${github}`
+
+}
+
+// Function to write Readme.md file with users anwers.
+function writeFile(answers) {
+    fs.writeFile("Readme.md", readMeTemplate(answers), (err) => {
+        err ? console.error(err) : console.log("Sucess")
+    })
 }
 
 
 
-
-function promptUser() {
+// Initializer function.
+function init() {
     inquirer
     .prompt(questions)
-    .then((answers) => console.log(answers))
+    .then((answers) => {
+        console.log("Selected License: ", answers.license);
+        writeFile(answers);
+    }
+    )
     .catch((err) => {
         err ? console.error(err) : console.log("File sucessfuly created!");
     })
 }
 
-promptUser()
+// Invoking init function to start our script.
+init();
