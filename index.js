@@ -79,7 +79,7 @@ function readMeTemplate(answers) {
 
     const installationSteps = installation.split(",");
     const instSteps = installationSteps.map(step => `${step.trim()}\n`).join("");
-    console.log(instSteps);
+    instSteps.trim();
 
     
 
@@ -114,15 +114,16 @@ ${description}
 
 ## Installation
 
+\`\`\`
 ${instSteps}
-
+\`\`\`
 ## Usage
 
 ${usage}
 
 ## License
 
-${license}  [License](${licenseUrl})
+${license} [Details]${licenseUrl}
 
 ## Tests
 

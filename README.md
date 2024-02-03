@@ -1,10 +1,10 @@
-# sd
+# 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description
 
-s
+
 
 ## Table of Contents
 
@@ -17,23 +17,27 @@ s
 
 ## Installation
 
-ds
+```
+step1
+step2
+step3
+step4
 
-
+```
 ## Usage
 
-d
+
 
 ## License
 
-MIT License  [License]((https://opensource.org/licenses/MIT))
+Apache License 2.0 [Details](https://opensource.org/licenses/Apache-2.0)
 
 ## Tests
 
 To run tests, use the following command:
 
 ```
-sd
+npm tests
 ```
 
 ## Contributing
@@ -42,4 +46,4 @@ sd
 
 ## Contact
 
-If you got some questions, contact me on : sd or sdd
+If you got some questions, contact me on :  or 
