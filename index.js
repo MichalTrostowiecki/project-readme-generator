@@ -27,7 +27,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Please write how to install your project. Follow template: 1.Your instructions. 2.Next instructions etc...',
+        message: 'Please write how to install your project. Finish each instruction with comma "," ',
         defualt: 'npm install'
     },
     {
@@ -71,16 +71,17 @@ const licenseBadges = {
     "Boost Software License 1.0": "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
   };
 
-const licenseLiks = {
-    "MIT License": 'https://opensource.org/licenses/MIT'
-}
 
-
-    
 
 function readMeTemplate(answers) {
 
     const { github, email, title, description, installation, usage, contributing, tests, license} = answers;
+
+    const installationSteps = installation.split(",");
+    const instSteps = installationSteps.map(step => `${step.trim()}\n`).join("");
+    console.log(instSteps);
+
+    
 
     
     // This gets the right badge based on user choice.
@@ -89,7 +90,6 @@ function readMeTemplate(answers) {
     // Break down object of licensebadges and get the link for the license
     const urlRegex = /\((https?:\/\/[^)]+)\)/g;
     const urls = userLicenseBadge.match(urlRegex);
-    console.log(urls);
     const licenseUrl = urls ? urls[1] : null;
     
     
@@ -114,7 +114,7 @@ ${description}
 
 ## Installation
 
-${installation}
+${instSteps}
 
 ## Usage
 
@@ -122,7 +122,7 @@ ${usage}
 
 ## License
 
-${license}[License]${licenseUrl}
+${license}  [License](${licenseUrl})
 
 ## Tests
 

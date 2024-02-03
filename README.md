@@ -1,10 +1,10 @@
-# d
+# sd
 
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
-d
+s
 
 ## Table of Contents
 
@@ -17,28 +17,29 @@ d
 
 ## Installation
 
-d
+ds
+
 
 ## Usage
 
-sd
+d
 
 ## License
 
-Creative Commons Zero v1.0 Universal[License](http://creativecommons.org/publicdomain/zero/1.0/)
+MIT License  [License]((https://opensource.org/licenses/MIT))
 
 ## Tests
 
 To run tests, use the following command:
 
 ```
-npm tests
+sd
 ```
 
 ## Contributing
 
-sd
+
 
 ## Contact
 
-If you got some questions, contact me on : ds or s
+If you got some questions, contact me on : sd or sdd
