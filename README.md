@@ -19,6 +19,8 @@ Javascript, Node, inquirer.
 
 ## Screenshot
 
+Link for walkthrough video : https://drive.google.com/file/d/1DsEcRvzGGAO6-zXRRfjY_pcbWX7-9sJo/view?usp=sharing
+
 ![Screenshot of the application](screenshot.png)
 
 ## Credits
