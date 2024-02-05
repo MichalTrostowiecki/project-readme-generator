@@ -44,7 +44,7 @@ const questions = [
         type: 'input',
         name: 'tests',
         message: 'Specify how to run tests for this project',
-        default: 'npm tests'
+        default: 'npm test'
     },
     {
         type: 'list',
@@ -75,14 +75,12 @@ const licenseBadges = {
 
 function readMeTemplate(answers) {
 
+    // Destructiring answers
     const { github, email, title, description, installation, usage, contributing, tests, license} = answers;
 
+    // Seperate each step finised with "," and for each one add line break
     const installationSteps = installation.split(",");
-    const instSteps = installationSteps.map(step => `${step.trim()}\n`).join("");
-    instSteps.trim();
-
-    
-
+    const instSteps = installationSteps.map(step => `${step.trim()}`).join("\n");
     
     // This gets the right badge based on user choice.
     const userLicenseBadge = licenseBadges[license] 
@@ -110,10 +108,9 @@ ${description}
 - [License](#license)
 - [Tests](#tests)
 - [Contributing](#contributing)
-- [Questions](#email)
+- [Questions](#questions)
 
 ## Installation
-
 \`\`\`
 ${instSteps}
 \`\`\`
@@ -137,15 +134,15 @@ ${tests}
 
 ${contributing}
 
-## Contact
+## Questions
 
-If you got some questions, contact me on : ${email} or ${github}`
+If you have any questions, contact me at : ${email} or on my GitHub account: ${github}.`
 
 }
 
 // Function to write Readme.md file with users anwers.
 function writeFile(answers) {
-    fs.writeFile("Readme.md", readMeTemplate(answers), (err) => {
+    fs.writeFile("TempReadme.md", readMeTemplate(answers), (err) => {
         err ? console.error(err) : console.log("Sucess")
     })
 }

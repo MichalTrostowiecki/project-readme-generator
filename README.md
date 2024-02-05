@@ -1,49 +1,30 @@
-# 
-
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+# Readme Generator
 
 ## Description
 
+This project allow the user to create readme.md file based on user input. File is automaticaly created once all the questions are answered.
 
+## Technologies Used
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Tests](#tests)
-- [Contributing](#contributing)
-- [Questions](#email)
+Javascript, Node, inquirer.
 
 ## Installation
 
-```
-step1
-step2
-step3
-step4
+1. Clone repo to your local desktop/laptop.
+2. Install node from this link: https://nodejs.org/en.
+3. In your freshly cloned folder open terminal and type in command line `npm install`
+4. Next run command `node index.js`
+5. Follow instructions from your command line.
+6. Once all questions are answered Readme.md file will be auto generated.
 
-```
-## Usage
+## Screenshot
 
+![Screenshot of the application](screenshot.png)
 
+## Credits
+
+N/A
 
 ## License
 
-Apache License 2.0 [Details](https://opensource.org/licenses/Apache-2.0)
-
-## Tests
-
-To run tests, use the following command:
-
-```
-npm tests
-```
-
-## Contributing
-
-
-
-## Contact
-
-If you got some questions, contact me on :  or 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
